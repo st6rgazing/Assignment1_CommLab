@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.documentElement.classList.add('dark-mode', 'instant-transition');
+        document.body.classList.add('instant-transition');
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.classList.remove('instant-transition');
+            document.body.classList.remove('instant-transition');
+        });
+    }
+</script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Campus Cats</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+</head>
+
+<body class="gaegu-regular">
+  <header>
+    <p class="title">Campus Cats</p>
+    <img src="img/pull_cord_dark.png" id="pullcord" class="pullcord" alt="Dark Mode Switch">
+    <center>
+        <nav class="navbar">
+          <a href="index.html" class="home button">Home</a>
+          <a href="about.html" class="about button">About</a>
+          <a href="gallery.html" class="gallery button">Gallery</a>
+          <a href="video.html" class="videoBtn button">Video</a>
+          <a href="contact.html" class="contact button active">Contact</a>
+        </nav>
+      </center>
+  </header>
+
+  <!-- Contact Form Section -->
+  <main>
+    <div class="contact-container">
+      <h2>Have any questions or feedback? Send us a message!</h2>
+
+      <form  action="https://formspree.io/f/xanqpzzz" method="POST"  id="contactForm">
+        <label for="name">Name:
+        <input type="text" name="name" id="name" required>
+      </label>
+        <label for="email">Email:
+        <input name="email" type="email"  id="email" required>
+      </label>
+        <label for="message">Message:
+        <textarea name="message" id="message" required></textarea>
+      </label>
+        <button type="submit" class="submit-button">Send</button>
+      </form>
+      
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

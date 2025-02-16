@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.documentElement.classList.add('dark-mode', 'instant-transition');
+        document.body.classList.add('instant-transition');
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.classList.remove('instant-transition');
+            document.body.classList.remove('instant-transition');
+        });
+    }
+</script>
+
+    <div class ="background"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Cats</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<div class ="background">
+<body class = "gaegu-regular">
+  <header>
+    <p class="title">Campus Cats</p>
+    <img src="img/pull_cord_dark.png" id="pullcord" class ="pullcord"></img>
+    <center>
+      <nav class="navbar">
+        <a href="index.html" class="home button">Home</a>
+        <a href="about.html" class="about button">About</a>
+        <a href="gallery.html" class="gallery button active">Gallery</a>
+        <a href="video.html" class="videoBtn button">Video</a>
+        <a href="contact.html" class="contact button">Contact</a>
+      </nav>
+    </center>
+  </header>
+
+  <main>
+    <div class="carousel-container">
+      <button id="prevBtn">&#10094;</button>
+      <div class="carousel">
+          <img src="img/cat1.jpg" class="carousel-img" alt="Cat 1">
+          <img src="img/cat2.jpg" class="carousel-img" alt="Cat 2">
+          <img src="img/cat3.jpg" class="carousel-img" alt="Cat 3">
+          <img src="img/cat4.jpg" class="carousel-img" alt="Cat 4">
+          <img src="img/cat5.jpg" class="carousel-img" alt="Cat 5">
+          <img src="img/cat6.jpg" class="carousel-img" alt="Cat 6">
+          <img src="img/cat7.jpg" class="carousel-img" alt="Cat 7">
+      </div>
+      <button id="nextBtn">&#10095;</button>
+  </div>
+  
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

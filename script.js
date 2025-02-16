@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.body.style.transition = '';
             }, 10);
         }
-
+        // the pullcord clicking logic
         pullcord.addEventListener("click", function () {
             document.body.classList.toggle("dark-mode");
             darkMode = !darkMode;
-
+            // check whether to toggle the light mode
             if (darkMode) {
                 localStorage.setItem("darkMode", "enabled");
                 pullcord.src = "img/pull_cord_light.png";
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }, 1000);
                 }
             } else {
+                // change the local storage value
                 localStorage.setItem("darkMode", "disabled");
                 pullcord.src = "img/pull_cord_dark.png";
                 if (title) title.style.color = "#715b82";
@@ -62,24 +63,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Carousel logic
+    // carousel logic
     const carousel = document.querySelector('.carousel');
     if (carousel) {
+        // initialitiation of images, prevBtn, nextBtn
         const images = document.querySelectorAll('.carousel-img');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let index = 0;
         const totalImages = images.length;
 
+        // update carousel when the user clicks on the dots
         function updateCarousel() {
             carousel.style.transform = `translateX(-${index * 100}%)`;
         }
-
+        // loop through the images and go back to the beginning if you make it to the end
         nextBtn.addEventListener('click', () => {
             index = (index + 1) % totalImages;
             updateCarousel();
         });
-
+        // loop through the images and loop back to the end if you try to press back at the beginning
         prevBtn.addEventListener('click', () => {
             index = (index - 1 + totalImages) % totalImages;
             updateCarousel();

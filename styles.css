@@ -112,7 +112,7 @@ body.dark-mode {
   font-size: 22px;
   padding: 12px 18px;
   background-color: #b697ca;
-  color: white; /* Ensures text is always white */
+  color: white !important;
   text-decoration: none;
   border: none;
   border-radius: 25px;
@@ -125,6 +125,7 @@ body.dark-mode {
 
 .button:active {
   background-color: #846798;
+  color:rgb(232, 192, 144) !important;
 }
 
 /* Dark mode button styles */
@@ -158,6 +159,7 @@ body.dark-mode {
 /* Active button state */
 .active {
   background-color: #715b82;
+  color:rgb(227, 205, 177) !important;
 }
 
 /* Pullcord (dark mode toggle) styling */

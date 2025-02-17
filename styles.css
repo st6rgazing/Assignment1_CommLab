@@ -58,11 +58,31 @@
   background-color: #846798;
 }
 
-/* Dark mode overrides for navbar and title */
+/* Navbar link active effect */
+.navbar a.active {
+  background-color: #9a7baf;
+  color: white;
+}
+
+/* Dark mode navbar and active effect */
 .dark-mode .navbar {
   background-color: #4a4a4a;
 }
 
+.dark-mode .navbar a {
+  color: white;
+}
+
+.dark-mode .navbar a.active {
+  background-color: #0d0c0e;
+  color: white;
+}
+
+
+.dark-mode .navbar a:hover{
+  background-color: #121013;
+  color: white;
+}
 .dark-mode .title {
   color: #ffffff;
 }
@@ -74,13 +94,14 @@
 body {
   background: url('img/background.png') no-repeat center center fixed;
   background-size: cover;
-  cursor: url('img/cat-paw.png'), auto;
+  cursor: url('img/cat_paw.png'), auto;
   transition: background 0.5s ease-in-out;
 }
 
 body.dark-mode {
   background: url('img/background2.png') no-repeat center center fixed;
   background-size: cover;
+  transition: background 0.5s ease-in-out; /* Smooth transition for background */
 }
 
 /* ===============================
@@ -91,7 +112,7 @@ body.dark-mode {
   font-size: 22px;
   padding: 12px 18px;
   background-color: #b697ca;
-  color: white;
+  color: white; /* Ensures text is always white */
   text-decoration: none;
   border: none;
   border-radius: 25px;
@@ -102,9 +123,22 @@ body.dark-mode {
   background-color: #9a7baf;
 }
 
+.button:active {
+  background-color: #846798;
+}
+
+/* Dark mode button styles */
 .dark-mode .button {
   background-color: #666;
-  color: white;
+  color: white; /* Always ensures text is white in dark mode */
+}
+
+.dark-mode .button:hover {
+  background-color: #9a7baf;
+}
+
+.dark-mode .button:active {
+  background-color: #846798;
 }
 
 /* ===============================
@@ -417,7 +451,7 @@ body.dark-mode {
   /* Stack the about container vertically */
   .about-container {
     flex-direction: column;
-    align-items: center;
+    align-items: centexr;
     gap: 10px;
   }
   

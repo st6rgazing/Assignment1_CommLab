@@ -2,87 +2,75 @@ document.addEventListener("DOMContentLoaded", function () {
     const pullcord = document.getElementById("pullcord");
 
     if (pullcord) {
-        const title = document.querySelector(".title");
-        const navbar = document.querySelector(".navbar");
-        const buttons = document.querySelectorAll(".button");
         const catgif = document.getElementById("catgif");
 
         // Check localStorage for dark mode preference
         let darkMode = localStorage.getItem("darkMode") === "enabled";
 
-        // Apply dark mode if previously enabled
-        if (darkMode) {
+        function applyDarkMode() {
             document.body.classList.add("dark-mode");
-            document.body.style.transition = 'none';
+            localStorage.setItem("darkMode", "enabled");
             pullcord.src = "img/pull_cord_light.png";
-            if (title) title.style.color = "#ffffff";
-            if (navbar) navbar.style.backgroundColor = "#4a4a4a";
-            buttons.forEach(button => {
-                button.style.backgroundColor = "#666";
-                button.style.color = "#fff";
-            });
-            if (catgif) catgif.src = "img/cat_gif_dark.gif";
 
-            setTimeout(() => {
-                document.body.style.transition = '';
-            }, 10);
-        }
-        // the pullcord clicking logic
-        pullcord.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            darkMode = !darkMode;
-            // check whether to toggle the light mode
-            if (darkMode) {
-                localStorage.setItem("darkMode", "enabled");
-                pullcord.src = "img/pull_cord_light.png";
-                if (title) title.style.color = "#ffffff";
-                if (navbar) navbar.style.backgroundColor = "#4a4a4a";
-                buttons.forEach(button => {
-                    button.style.backgroundColor = "#666";
-                    button.style.color = "#fff";
-                });
-                if (catgif) {
-                    catgif.style.opacity = "0";
+            if (catgif) {
+                catgif.style.opacity = "0";
+                setTimeout(() => {
                     catgif.src = "img/cat_gif_dark.gif";
-                    setTimeout(() => {
-                        catgif.style.opacity = "1";
-                    }, 1000);
-                }
+                    catgif.style.opacity = "1";
+                }, 300);
+            }
+        }
+
+        function removeDarkMode() {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+            pullcord.src = "img/pull_cord_dark.png";
+
+            if (catgif) {
+                catgif.style.opacity = "0";
+                setTimeout(() => {
+                    catgif.src = "img/cat_gif_light.gif";
+                    catgif.style.opacity = "1";
+                }, 300);
+            }
+        }
+
+        // Apply dark mode if it was enabled previously
+        if (darkMode) {
+            applyDarkMode();
+        } else {
+            removeDarkMode();
+        }
+
+        // Pullcord click handler to toggle dark mode
+        pullcord.addEventListener("click", function () {
+            darkMode = !darkMode;
+            if (darkMode) {
+                applyDarkMode();
             } else {
-                // change the local storage value
-                localStorage.setItem("darkMode", "disabled");
-                pullcord.src = "img/pull_cord_dark.png";
-                if (title) title.style.color = "#715b82";
-                if (navbar) navbar.style.backgroundColor = "#d3b4e6";
-                buttons.forEach(button => {
-                    button.style.backgroundColor = "#9a7baf";
-                    button.style.color = "white";
-                });
-                if (catgif) catgif.src = "img/cat_gif_light.gif";
+                removeDarkMode();
             }
         });
     }
 
-    // carousel logic
+    // Carousel logic
     const carousel = document.querySelector('.carousel');
     if (carousel) {
-        // initialitiation of images, prevBtn, nextBtn
         const images = document.querySelectorAll('.carousel-img');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let index = 0;
         const totalImages = images.length;
 
-        // update carousel when the user clicks on the dots
         function updateCarousel() {
             carousel.style.transform = `translateX(-${index * 100}%)`;
         }
-        // loop through the images and go back to the beginning if you make it to the end
+
         nextBtn.addEventListener('click', () => {
             index = (index + 1) % totalImages;
             updateCarousel();
         });
-        // loop through the images and loop back to the end if you try to press back at the beginning
+
         prevBtn.addEventListener('click', () => {
             index = (index - 1 + totalImages) % totalImages;
             updateCarousel();

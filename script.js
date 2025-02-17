@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     catgif.src = "img/cat_gif_dark.gif";
                     catgif.style.opacity = "1";
-                }, 300);
+                }, 500);
             }
         }
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     catgif.src = "img/cat_gif_light.gif";
                     catgif.style.opacity = "1";
-                }, 300);
+                }, 500);
             }
         }
 
